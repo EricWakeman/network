@@ -7,5 +7,6 @@ export default class Post {
     this.creatorImg = data.creator.picture
     this.id = data.id
     this.likeIds = data.likeIds
+    this.imgUrl = data.imgUrl
   }
 }

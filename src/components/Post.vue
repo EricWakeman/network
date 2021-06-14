@@ -3,12 +3,13 @@
     <div class="col-12">
       <div class="card shadow rounded">
         <div class="card-header" @click="getProfile">
+          <img :src="post.imgUrl" alt="Post Image" height="500" width="500" v-if="post.imgUrl">
+        </div>
+        <div class="card-body">
           <router-link :to="{name:'Profile', params:{id: post.creatorId} }" title="Home">
             <img :src="post.creatorImg" :alt="post.creatorId" height="100" width="100">
           </router-link>
-          <span>Posted: {{ post.createdAt }}</span>
-        </div>
-        <div class="card-body">
+          <h4>Posted: {{ post.createdAt }}</h4>
           <span>{{ post.body }}</span>
         </div>
         <div class="card-footer text-right">
