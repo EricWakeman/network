@@ -45,8 +45,7 @@ class PostsService {
     const res = await api.post('api/posts/' + id + '/like')
     const post = AppState.posts.find(p => p.id === id)
     logger.log(res.data)
-    post.likeIds.filter(p => p.id !== AppState.account.id)
-    logger.log(post.likeIds)
+    post.likeIds.filter(p => p !== AppState.account.id)
   }
 
   async getNewerPosts() {
