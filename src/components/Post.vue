@@ -9,7 +9,7 @@
           <router-link :to="{name:'Profile', params:{id: post.creatorId} }" title="Home">
             <img :src="post.creatorImg" :alt="post.creatorId" height="100" width="100">
           </router-link>
-          <h4>Posted: {{ post.createdAt }}</h4>
+          <h4>Posted: {{ time[0] }}</h4>
           <span>{{ post.body }}</span>
         </div>
         <div class="card-footer text-right">
@@ -34,10 +34,17 @@ import { profilesService } from '../services/ProfilesService'
 import { AppState } from '../AppState'
 import { postsService } from '../services/PostsService'
 import Notification from '../utils/Notification'
+import moment from 'moment'
 export default {
   props: { post: { type: Object, required: true } },
   setup(props) {
+    const time = props.post.createdAt.split('T')
+    const noZ = time[1].replace('Z', '')
+    const convert = moment(time[0]).format()
     return {
+      noZ,
+      time,
+      convert,
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       async getProfile() {
