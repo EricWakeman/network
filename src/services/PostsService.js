@@ -38,12 +38,16 @@ class PostsService {
     const post = AppState.posts.find(p => p.id === id)
     logger.log(res.data)
     post.likeIds.push(AppState.account.id)
+    logger.log(post.likeIds)
   }
 
-  // async unlikePost(id) {
-  //   const res = await api.delete('api/posts/' + id + '/like')
-  //   logger.log(res.data)
-  // }
+  async unlikePost(id) {
+    const res = await api.post('api/posts/' + id + '/like')
+    const post = AppState.posts.find(p => p.id === id)
+    logger.log(res.data)
+    post.likeIds.filter(p => p.id !== AppState.account.id)
+    logger.log(post.likeIds)
+  }
 
   async getNewerPosts() {
     const res = await axios.get(AppState.newerPosts)

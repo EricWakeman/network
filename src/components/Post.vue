@@ -12,7 +12,7 @@
           <span>{{ post.body }}</span>
         </div>
         <div class="card-footer text-right">
-          <button class="btn btn-success" v-if="user.isAuthenticated && post.likeIds.includes(account.id)">
+          <button class="btn btn-success" @click="unlikePost" v-if="user.isAuthenticated && post.likeIds.includes(account.id)">
             LIKED: {{ post.likeIds.length }}
           </button>
           <button class="btn btn-primary" @click="likePost" v-else-if="user.isAuthenticated">
