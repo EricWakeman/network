@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="getPostsByQuery">
+  <form @submit.prevent="getPostsByQuery" class="mt-2">
     <label for="Search Posts">
       <input type="text" class="form-control" placeholder="Search Posts" v-model="state.searchQuery.param">
     </label>

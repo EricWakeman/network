@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main-bg">
     <div class="d-flex full-page">
       <div class="bg-dark side-nav text-white text-center">
         <router-link :to="{name: 'Home'}" title="Home">
@@ -70,5 +70,8 @@ export default {
 }
 .add-space{
   max-width: 300px;
+}
+.main-bg{
+  background-image: url('./assets/img/honeycomb.jpg');
 }
 </style>
